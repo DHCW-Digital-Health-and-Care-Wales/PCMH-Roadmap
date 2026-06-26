@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand tokens are also exposed as CSS variables so non-Tailwind code can
+     reference them in one place (docs/BUILD_BRIEF.md Section 3). */
+  --color-navy: #1b294a;
+  --color-dhcw-blue: #12a3c9;
+  --color-nhs-wales-blue: #325083;
+  --color-yellow: #f8ca4d;
+}
+
+@layer base {
+  body {
+    @apply bg-surface-subtle text-ink-900 font-sans antialiased;
+  }
+}
+
+/* Keep motion minimal and never essential (docs/BUILD_BRIEF.md Section 7). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
