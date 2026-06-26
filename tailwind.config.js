@@ -4,30 +4,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        // DHCW palette (docs/BUILD_BRIEF.md Section 3).
+        // DHCW brand palette (docs/BUILD_BRIEF.md Section 3).
         navy: '#1B294A',
         'dhcw-blue': '#12A3C9',
         'nhs-wales-blue': '#325083',
         yellow: '#F8CA4D',
+        // UI tokens lifted from the Figma Make export so look and feel match
+        // the design (figma-make-export/App.tsx and theme.css).
+        heading: '#1B365D', // section and card headings
+        action: '#005AA8', // interactive accents and active states
         // Neutral scale for text, borders and backgrounds.
         ink: {
-          900: '#1B2330',
+          900: '#212B32', // body text (from Figma)
           700: '#3A4453',
           500: '#5A6675',
           300: '#9AA4B2',
         },
         surface: {
           DEFAULT: '#FFFFFF',
-          subtle: '#F4F6F9',
+          subtle: '#F0F4F5', // section backgrounds (from Figma)
           muted: '#E8EDF3',
         },
         border: {
-          DEFAULT: '#D6DCE5',
+          DEFAULT: '#D8DDE0', // card and panel borders (from Figma)
           strong: '#B6C0CD',
         },
       },
       fontFamily: {
-        // DHCW digital interface font is Roboto, with a system fallback.
+        // DHCW digital interface font is Roboto, self-hosted via @fontsource
+        // (docs/BUILD_BRIEF.md Sections 3 and 9), with a system fallback.
         sans: [
           'Roboto',
           'system-ui',
@@ -39,7 +44,12 @@ export default {
         ],
       },
       borderRadius: {
-        card: '0.75rem',
+        // Figma cards and panels use an 8px radius.
+        card: '0.5rem',
+      },
+      maxWidth: {
+        // Figma content container is max-w-7xl (80rem).
+        content: '80rem',
       },
     },
   },
