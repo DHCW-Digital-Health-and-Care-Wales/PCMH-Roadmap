@@ -11,6 +11,6 @@ Because the site is a simple static page, you can preview it locally by opening
 server, for example:
 
 ```bash
-cd /home/runner/work/PCMH-Roadmap/PCMH-Roadmap
+cd /path/to/PCMH-Roadmap
 python3 -m http.server 8000
 ```
