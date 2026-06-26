@@ -5,7 +5,9 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  // figma-make-export is the Figma Make design reference bundle, not app code.
+  // It is kept for look-and-feel reference only and excluded from linting.
+  { ignores: ['dist', 'figma-make-export'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
