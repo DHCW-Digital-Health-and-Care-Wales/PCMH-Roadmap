@@ -82,7 +82,9 @@ npm run format   # format with Prettier
 
 The site deploys to GitHub Pages from `main` via the workflow in
 [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml). The Vite base
-path is set to `/PCMH-Roadmap/` so assets resolve on the project site.
+path is relative (`./`) so assets resolve whether Pages serves the site from the
+root of a private `*.pages.github.io` subdomain (while the repo is private) or
+from `/PCMH-Roadmap/` as a public project page.
 
 > **Repository setting required:** in **Settings -> Pages**, set the source to
 > **GitHub Actions** for deployments to run.
