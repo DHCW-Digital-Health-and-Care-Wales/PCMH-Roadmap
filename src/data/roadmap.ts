@@ -42,7 +42,7 @@ export interface RoadmapMeta {
   owner: string;
   lastUpdated: string; // ISO date
   reviewNote: Localised; // how often we update it
-  statusLabel: string; // 'Draft for Discussion'
+  statusLabel: string; // 'Alpha'
 }
 
 export interface Roadmap {
@@ -77,7 +77,7 @@ export const roadmap: Roadmap = {
       cy: TODO_CY,
       en: 'We update this roadmap regularly as our plans develop.',
     },
-    statusLabel: 'Draft for Discussion',
+    statusLabel: 'Alpha',
   },
 
   // Horizon definitions from docs/BUILD_BRIEF.md Section 1.
