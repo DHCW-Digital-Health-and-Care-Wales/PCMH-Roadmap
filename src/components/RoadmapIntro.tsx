@@ -4,7 +4,7 @@ import { formatDate } from '../lib/roadmap-helpers';
 
 /**
  * Title section (docs/BUILD_BRIEF.md Section 4): the roadmap title, the
- * "Draft for Discussion" status label, a visible "last updated" date and the
+ * "Alpha" status label, a visible "last updated" date and the
  * short intro. Rendered as the page's primary heading.
  */
 export function RoadmapIntro({ meta }: { meta: RoadmapMeta }) {
