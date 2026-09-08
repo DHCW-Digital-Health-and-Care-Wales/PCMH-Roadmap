@@ -59,8 +59,52 @@ export interface RoadmapMeta {
   statusLabel: string; // 'Alpha'
 }
 
+/** One of the principles that guides how we design and deliver. */
+export interface ContextPrinciple {
+  title: Localised;
+  body: Localised;
+}
+
+/** One of the directorate's service domains, and what it does. */
+export interface ServiceDomain {
+  id: string; // slug, e.g. 'general-practice'
+  name: Localised;
+  description: Localised;
+}
+
+/**
+ * The orientation block at the top of the page. It carries the reader from the
+ * DHCW mission, through our principles, purpose and vision, into what each of
+ * our five service domains does, and finishes with the NHS Wales App. Every
+ * string is language-keyed, so nothing is hard-coded in the component.
+ */
+export interface RoadmapContext {
+  heading: Localised; // the section heading
+  intro: Localised; // one or two sentences setting up the block
+  mission: { heading: Localised; body: Localised };
+  principles: {
+    heading: Localised;
+    intro: Localised;
+    items: ContextPrinciple[];
+  };
+  purposeVision: {
+    heading: Localised;
+    purposeLabel: Localised;
+    purpose: Localised;
+    visionLabel: Localised;
+    vision: Localised;
+  };
+  serviceDomains: {
+    heading: Localised;
+    intro: Localised;
+    items: ServiceDomain[];
+  };
+  nhsWalesApp: { heading: Localised; body: Localised };
+}
+
 export interface Roadmap {
   meta: RoadmapMeta;
+  context: RoadmapContext;
   horizons: { id: Horizon; label: Localised; definition: Localised }[];
   categories: Category[];
   items: RoadmapItem[];
@@ -92,6 +136,141 @@ export const roadmap: Roadmap = {
       en: 'We update this roadmap regularly as our plans develop.',
     },
     statusLabel: 'Alpha',
+  },
+
+  // Orientation block for the top of the page. This is seeded from DHCW's
+  // published organisational strategy (purpose, vision and principles) and the
+  // directorate's service areas; the directorate can refine the copy here
+  // without touching the component.
+  context: {
+    heading: { cy: TODO_CY, en: 'Our mission and services' },
+    intro: {
+      cy: TODO_CY,
+      en: 'Before the roadmap itself, here is a short orientation: who we are, what guides us, and the services this work sits behind.',
+    },
+    mission: {
+      heading: { cy: TODO_CY, en: 'Our mission' },
+      body: {
+        cy: TODO_CY,
+        en: 'Digital Health and Care Wales builds and runs the national digital services that the NHS in Wales relies on. In the Primary, Community and Mental Health directorate, our part of that mission is care closer to home. We support the teams and services people turn to first, across general practice, community pharmacy, immunisation, mental health, and community and child health.',
+      },
+    },
+    principles: {
+      heading: { cy: TODO_CY, en: 'Our principles' },
+      intro: {
+        cy: TODO_CY,
+        en: 'A small number of principles guide how we design and deliver, whichever service we are working on.',
+      },
+      items: [
+        {
+          title: { cy: TODO_CY, en: 'Putting people first' },
+          body: {
+            cy: TODO_CY,
+            en: 'We design around the needs of the people who use our services and the people who care for them.',
+          },
+        },
+        {
+          title: { cy: TODO_CY, en: 'Simplifying everything we do' },
+          body: {
+            cy: TODO_CY,
+            en: 'We remove complexity so services are easier to use and easier to run.',
+          },
+        },
+        {
+          title: { cy: TODO_CY, en: 'Designing for more data and digital' },
+          body: {
+            cy: TODO_CY,
+            en: 'We build for a future where joined-up data and digital services are the norm, not the exception.',
+          },
+        },
+        {
+          title: { cy: TODO_CY, en: 'Finding more value' },
+          body: {
+            cy: TODO_CY,
+            en: 'We focus our effort and our spending where they make the biggest difference to care.',
+          },
+        },
+        {
+          title: {
+            cy: TODO_CY,
+            en: 'Learning from the past while building for the future',
+          },
+          body: {
+            cy: TODO_CY,
+            en: 'We take what we have learned and use it to make the next thing better.',
+          },
+        },
+      ],
+    },
+    purposeVision: {
+      heading: { cy: TODO_CY, en: 'Our purpose and vision' },
+      purposeLabel: { cy: TODO_CY, en: 'Purpose' },
+      purpose: {
+        cy: TODO_CY,
+        en: 'To make digital a force for good in health and care.',
+      },
+      visionLabel: { cy: TODO_CY, en: 'Vision' },
+      vision: {
+        cy: TODO_CY,
+        en: 'World-leading digital services that help people in Wales live healthier lives, and that give the people who care for them the tools and information they need.',
+      },
+    },
+    serviceDomains: {
+      heading: { cy: TODO_CY, en: 'Our five service domains' },
+      intro: {
+        cy: TODO_CY,
+        en: 'Our work spans five service domains. Each supports a different part of primary, community and mental health care, and the roadmap below draws on all of them.',
+      },
+      items: [
+        {
+          id: 'general-practice',
+          name: { cy: TODO_CY, en: 'General practice' },
+          description: {
+            cy: TODO_CY,
+            en: 'The systems that GP teams and primary care staff use every day to care for their patients and manage their practice.',
+          },
+        },
+        {
+          id: 'community-pharmacy',
+          name: { cy: TODO_CY, en: 'Community pharmacy' },
+          description: {
+            cy: TODO_CY,
+            en: 'Digital services that let pharmacy teams deliver NHS commissioned services, from common ailments and contraception to emergency medicines.',
+          },
+        },
+        {
+          id: 'immunisation',
+          name: { cy: TODO_CY, en: 'Immunisation' },
+          description: {
+            cy: TODO_CY,
+            en: 'Recording and managing vaccinations across Wales, so people get the protection they are due and their records stay accurate.',
+          },
+        },
+        {
+          id: 'mental-health',
+          name: { cy: TODO_CY, en: 'Mental health' },
+          description: {
+            cy: TODO_CY,
+            en: 'Digital services that support mental health care across community and specialist settings, including services for children and young people.',
+          },
+        },
+        {
+          id: 'community-child-health',
+          name: { cy: TODO_CY, en: 'Community and child health' },
+          description: {
+            cy: TODO_CY,
+            en: 'Services that support community teams and child health, helping care join up outside hospital.',
+          },
+        },
+      ],
+    },
+    nhsWalesApp: {
+      heading: { cy: TODO_CY, en: 'The NHS Wales App' },
+      body: {
+        cy: TODO_CY,
+        en: 'Much of this work reaches the public through the NHS Wales App, the digital front door to the NHS in Wales. People can already use it to book and manage GP appointments, order repeat prescriptions and see parts of their health record, in Welsh or English. As our services develop, more of what we build will be available through the app.',
+      },
+    },
   },
 
   // Horizon definitions from docs/BUILD_BRIEF.md Section 1.

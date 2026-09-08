@@ -1,6 +1,7 @@
 import { roadmap } from './data/roadmap';
 import { RoadmapHeader } from './components/RoadmapHeader';
 import { RoadmapIntro } from './components/RoadmapIntro';
+import { ContextSection } from './components/ContextSection';
 import { HorizonExplainer } from './components/HorizonExplainer';
 import { CategorySection } from './components/CategorySection';
 import { AccessibilityStatement } from './components/AccessibilityStatement';
@@ -29,6 +30,7 @@ export default function App() {
 
       <main id="main-content">
         <RoadmapIntro meta={roadmap.meta} />
+        <ContextSection context={roadmap.context} />
         <HorizonExplainer roadmap={roadmap} />
 
         <div id="roadmap" className="scroll-mt-28 bg-surface px-4 py-8 sm:px-6">
