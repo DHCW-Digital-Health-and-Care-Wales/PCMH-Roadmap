@@ -10,6 +10,7 @@ import type {
   Localised,
   Roadmap,
   RoadmapItem,
+  RoadmapSource,
 } from '../data/roadmap';
 
 /** Items in a category for a given horizon, preserving source order. */
@@ -28,6 +29,18 @@ export const STATUS_LABELS: Record<ItemStatus, Localised> = {
   exploring: { cy: '', en: 'Exploring' },
   'in-progress': { cy: '', en: 'In progress' },
   shipped: { cy: '', en: 'Shipped' },
+};
+
+/**
+ * Human-readable, language-keyed label for an item's originating roadmap. Used
+ * to show where an imported item came from. English strings match the source
+ * names used on the sibling roadmaps verbatim.
+ */
+export const SOURCE_LABELS: Record<RoadmapSource, Localised> = {
+  vaccines: { cy: '', en: 'Vaccines' },
+  gms: { cy: '', en: 'General Medical Services' },
+  'choose-pharmacy': { cy: '', en: 'Choose Pharmacy' },
+  pcmh: { cy: '', en: 'PCMH' },
 };
 
 /**
